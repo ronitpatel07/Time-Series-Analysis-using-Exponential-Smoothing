@@ -1,3 +1,9 @@
+install.packages('forecast')
+install.packages('dplyr')
+install.packages('quantmod')
+install.packages('bondrcpp')
+
+
 library(forecast)
 library(dplyr)
 library(quantmod)
@@ -67,7 +73,7 @@ prediction_acc
 mae_acc<-mapply(function(x,y) mean(abs(x-y)), x=prediction_acc, y=test_act)
 mae_acc
 
-
+#Plotting time-series with Predictions
 plt<-lapply(test, function(a) ts.plot(a,ylim=c(0,1000), xlim=c(2017, 2018)))
 plt1<-lapply(pred, function(x) lines(x, col="green"))
 plt2<-lapply(pred_acc, function(x) lines(x, col="blue"))
